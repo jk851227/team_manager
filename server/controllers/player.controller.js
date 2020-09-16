@@ -29,5 +29,17 @@ module.exports = {
                     res.json(err)
                 }
             })
+    },
+    // Update Player
+    updatePlayer: (req, res) => {
+        Player.findOneAndUpdate({ _id: req.params.id }, req.body, { runValidators: true, new: true })
+            .then(data => res.json(data))
+            .catch(err => res.json(err))
+    },
+    // Delete Player
+    deletePlayer: (req, res) => {
+        Player.findOneAndDelete({ _id: req.params.id })
+            .then(data => res.json(data))
+            .catch(err => res.json(err))
     }
 }
