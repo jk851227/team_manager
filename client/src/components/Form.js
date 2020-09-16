@@ -35,7 +35,12 @@ const Form = props => {
                     <label htmlFor="pref_position">Preferred Position:</label>
                     <input type="text" name="pref_position" onChange={ handleChange } />
                 </div>
-                <button>Add Player</button>
+                {
+                    player.name.length < 2 ?
+                    <button type="button" disabled>Add Player</button>
+                    : 
+                    <button>Add Player</button>
+                }
             </form>
         </div>
     )

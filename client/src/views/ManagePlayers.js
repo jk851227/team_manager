@@ -30,8 +30,8 @@ const Main = () => {
                     <Link to="/players/addplayer">Add Player</Link>
                 </h2>
             </div>
-            <PlayerList />
             <Router>
+                <PlayerList path="/players/list"/>
                 <Form path="/players/addplayer" submitProp={ createPlayer } nameProp="" prefPosProp="" errors={ errors } />
             </Router>
         </>
