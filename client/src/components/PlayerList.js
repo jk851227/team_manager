@@ -6,8 +6,6 @@ import { navigate } from '@reach/router';
 const PlayerList = (props) => {
   const [players, setPlayers] = useState([]);
   const [loaded, setLoaded] = useState(false);
-  // const { players, loaded } = props;
-  // const [ allPlayers, setAllPlayers ] = useState([]);
 
   useEffect(() => {
     axios
@@ -18,7 +16,11 @@ const PlayerList = (props) => {
       })
       .catch((err) => console.log(err));
   }, [players]);
-  
+
+  const removeFromList = id => {
+      setPlayers(players.filter(player => player._id != id))
+  }
+
   return (
     <div>
       {loaded && (
@@ -39,7 +41,7 @@ const PlayerList = (props) => {
                   <td>
                     <DeleteBtn
                       id={player._id}
-                      success={() => navigate('/players/list')}
+                      success={() => removeFromList(player._id)}
                     />
                   </td>
                 </tr>
