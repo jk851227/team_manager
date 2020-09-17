@@ -24,7 +24,7 @@ const Form = props => {
             <form onSubmit={ handleSubmit }>
                 <div>
                     <label htmlFor="name">Player Name:</label>
-                    <input type="text" name="name" onChange={ handleChange } />
+                    <input type="text" name="name" value={player.name} onChange={ handleChange } />
                     {
                         errors.name ?
                         <p>{ errors.name.message }</p>
@@ -33,7 +33,7 @@ const Form = props => {
                 </div>
                 <div>
                     <label htmlFor="pref_position">Preferred Position:</label>
-                    <input type="text" name="pref_position" onChange={ handleChange } />
+                    <input type="text" name="pref_position" value={player.pref_position} onChange={ handleChange } />
                 </div>
                 {
                     player.name.length < 2 ?
